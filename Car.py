@@ -1,0 +1,38 @@
+class Car:
+    def __init__(self):
+        self._link = ""
+        self._price = ""
+        self._coteMin = ""
+        self._coteMax = ""
+
+    # Setters
+    def set_link(self, link):
+        self._link = link
+
+    def set_price(self, price):
+        self._price = price
+
+    def set_coteMin(self, coteMin):
+        self._coteMin = coteMin
+
+    def set_coteMax(self, coteMax):
+        self._coteMax = coteMax
+
+    # Getters
+    def get_link(self):
+        return self._link
+
+    def get_price(self):
+        return self._price
+
+    def get_coteMin(self):
+        return self._coteMin
+
+    def get_coteMax(self):
+        return self._coteMax
+
+    def isValid(self):
+        return self._price != "" and self._coteMin != "" and self._coteMax != ""
+        
+    def __str__(self):
+        return f"Prix: {self._price} Cote min: {self._coteMin} max: {self._coteMax} lien:{self._link}"
