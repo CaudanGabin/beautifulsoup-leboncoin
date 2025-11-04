@@ -12,8 +12,8 @@ if len(sys.argv) > 1:
 else:
     base_url = input("Lien de recherche leboncoin : ")
     
-nb_pages = 2
-limit=10
+nb_pages = 6
+limit=100
 
 def getCars(driver):
     cars = []
@@ -71,16 +71,19 @@ res_cars = getCars(driver)
 valid = 0
 # Récupération des prix
 for i in range(0,len(res_cars)):
+    time.sleep(3)
     print(f"Annonce {i+1}/{len(res_cars)}")
     recuperer_infos(driver, res_cars[i])
-    if res_cars[i].isValid():
+    if res_cars[i].isValuable():
+        print(res_cars[i])
         valid += 1
         if valid == limit:
             break
 
 # Afficher les voitures
+print("Synthèse :")
 for car in res_cars:
-    if car.isValid():
+    if car.isValuable():
         print(car)
 
 driver.quit()
